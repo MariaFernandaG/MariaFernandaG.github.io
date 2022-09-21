@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- 
+    Página de carga aplicación básica en ThreeJS
+    #info, texto que quiero que aparezca (z-index = para ver el texto sobre la imagen)
+-->
+
+<html lang="es"><head>
+        <meta charset="utf-8">
+        <title> ThreeJS App </title>
+        <style>
+            body{ background-color: #000;
+                  margin: 0px;
+                  overflow: hidden;
+                } 
+            #info{
+                position: absolute;
+                bottom: 0px;
+                left: 50px;
+                width: 30%;
+                text-align: left;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- contenedor del app -->
+        <div id="container"></div>
+        <div id="info">
+            <h2>Threejs Example</h2>
+        </div>
+
+        <!-- scripts de biblioteca -->
+        <script type="importmap">
+            {"imports": {"three": "./lib/three.module.js"}}
+        </script>
+
+        <!-- mi script -->
+        <script type="module" src="js/EscenaBasica.js"></script>
+    
+    </body>
+</html>
