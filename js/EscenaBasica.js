@@ -10,7 +10,7 @@ let angulo = 0.01;
 
 // Acciones
 init();
-scene();
+loadScene();
 render();
 
 function init()
