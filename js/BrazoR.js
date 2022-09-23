@@ -11,7 +11,8 @@ import * as THREE from "../lib/three.module.js";
 let renderer, scene, camera;
 
 // Otras globales
-let esferaCubo;
+let brazo;
+let antebrazo;
 let angulo = 0;
 
 // Acciones
