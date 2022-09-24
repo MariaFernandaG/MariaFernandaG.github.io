@@ -60,12 +60,14 @@ function loadScene()
     eje.rotation.x = -Math.PI/2;           //Rotar el eje sobre el eje X
     const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18/n,120/n,12/n), material );
     const rotula = new THREE.Mesh( new THREE.SphereGeometry(20/n,40,40), material );
+    esparrago.position.y = 20/n;
+    rotula.position.y = 180/n;
 
     brazo = new THREE.Object3D();
     brazo.add(eje);
     brazo.add(esparrago);
     brazo.add(rotula);
-    //base.add(brazo);
+    base.add(brazo);
 
     //Antebrazo
     //const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
