@@ -36,7 +36,7 @@ function init()
     var aspectRatio = window.innerWidth / window.innerHeight;
     camera= new THREE.PerspectiveCamera(75,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
     camera.position.set(0,30,30);                                               // posición de la cámara
-    camera.lookAt(10,10,10);                                                       // hacia dónde ve la cámara
+    camera.lookAt(0,10,10);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
 
@@ -74,29 +74,29 @@ function loadScene()
     base.add(brazo);
 
     //Antebrazo
-    const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
-    const nervio1 = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    const nervio2 = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    const nervio3 = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    const nervio4 = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
+    const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22/n, 22/n, 6/n, 32 ), material );
+    const nervio1 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const nervio2 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const nervio3 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const nervio4 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15/n, 15/n, 40/n, 32 ), material );
     
     mano.rotation.x = -Math.PI/2;                               //Rotar la mano sobre el eje X
-    nervio1.position.x = -20;
+    nervio1.position.x = -20/n;
     nervio1.position.y = (80/n)/2 + (6/n)/2;
-    nervio1.position.z = 20;
+    nervio1.position.z = 20/n;
 
-    nervio2.position.x = -20;
+    nervio2.position.x = -20/n;
     nervio2.position.y = (80/n)/2 + (6/n)/2;
-    nervio2.position.z = -20;
+    nervio2.position.z = -20/n;
 
-    nervio3.position.x = 20;
+    nervio3.position.x = 20/n;
     nervio3.position.y = (80/n)/2 + (6/n)/2;
-    nervio3.position.z = -20;
-    
-    nervio4.position.x = 20;
+    nervio3.position.z = -20/n;
+
+    nervio4.position.x = 20/n;
     nervio4.position.y = (80/n)/2 + (6/n)/2;
-    nervio4.position.z = 20;
+    nervio4.position.z = 20/n;
     mano.position.y = (80/n) + (6/n)/2;
 
     antebrazo = new THREE.Object3D();
