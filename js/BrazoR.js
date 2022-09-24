@@ -42,10 +42,11 @@ function init()
 function loadScene()
 {
     // Material sencillo
-    const material = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
+    const materialS = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
+    const material = new THREE.MeshBasicMaterial({color:'red',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
-    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,1000, 1000,1000), material );  //tamaña 1000x1000
+    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,1000, 10,10), material );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
     suelo.position.y = -0.2;
     scene.add(suelo);
