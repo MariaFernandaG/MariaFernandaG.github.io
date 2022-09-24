@@ -43,7 +43,7 @@ function loadScene()
 {
     // Material sencillo
     const material = new THREE.MeshBasicMaterial({color:'red',wireframe:true});
-    const materialS = new THREE.MeshBasicMaterial({color:'yellow'wireframe:true});
+    const materialS = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
     const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,1000, 10,10), materialS );  //tamaña 1000x1000

@@ -34,8 +34,8 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(90,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
-    camera.position.set(0.5,7,7);                                               // posición de la cámara
+    camera= new THREE.PerspectiveCamera(75,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
+    camera.position.set(0.5,3,7);                                               // posición de la cámara
     camera.lookAt(0,0,0);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
@@ -61,10 +61,10 @@ function loadScene()
     const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18/n,120/n,12/n), material );
     const rotula = new THREE.Mesh( new THREE.SphereGeometry(20/n,40,40), material );
 
-    //brazo = new THREE.Object3D();
-    //brazo.add(eje);
-    //brazo.add(esparrago);
-    //brazo.add(rotula);
+    brazo = new THREE.Object3D();
+    brazo.add(eje);
+    brazo.add(esparrago);
+    brazo.add(rotula);
     //base.add(brazo);
 
     //Antebrazo
