@@ -50,28 +50,28 @@ function loadScene()
     scene.add(suelo);
 
     //Base (cilíndro)
-    const base = new THREE.Object3D( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
+    //const base = new THREE.Object3D( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
     //scene.add(base);
 
     //Brazo
-    const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20, 20, 18, 32 ), material );
-    eje.rotation.x = -Math.PI/2;           //Rotar el eje sobre el eje X
-    const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18,120,12), material );
-    const rotula = new THREE.Mesh( new THREE.SphereGeometry(20,40,40), material );
+    //const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20, 20, 18, 32 ), material );
+    //eje.rotation.x = -Math.PI/2;           //Rotar el eje sobre el eje X
+    //const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18,120,12), material );
+    //const rotula = new THREE.Mesh( new THREE.SphereGeometry(20,40,40), material );
 
-    brazo = new THREE.Object3D();
-    brazo.add(eje);
-    brazo.add(esparrago);
-    brazo.add(rotula);c
+    //brazo = new THREE.Object3D();
+    //brazo.add(eje);
+    //brazo.add(esparrago);
+    //brazo.add(rotula);
     //base.add(brazo);
 
     //Antebrazo
-    const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
-    const nervios = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
-    mano.rotation.x = -Math.PI/2;           //Rotar la mano sobre el eje X
+    //const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
+    //const nervios = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
+    //const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
+    //mano.rotation.x = -Math.PI/2;           //Rotar la mano sobre el eje X
 
-    antebrazo = new THREE.Object3D();
+    //antebrazo = new THREE.Object3D();
     //antebrazo.add(disco);
     //antebrazo.add(nervios);
     //antebrazo.add(mano);
@@ -80,12 +80,6 @@ function loadScene()
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     //cubo.add( new THREE.AxesHelper(1) );
 
-}
-
-function update()
-{
-    angulo += 0.01;
-    esferaCubo.rotation.y = angulo;
 }
 
 function render()
