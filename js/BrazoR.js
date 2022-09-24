@@ -33,7 +33,7 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(75,aspectRatio,0.1,1000);          // ángulo de visión vertical en grados
+    camera= new THREE.PerspectiveCamera(80,aspectRatio,0.1,10000);          // ángulo de visión vertical en grados
     camera.position.set(0.5,2,7);                                       // posición de la cámara
     camera.lookAt(0,1,0);                                               // hacia dónde ve la cámara
 }
@@ -44,14 +44,14 @@ function loadScene()
     const material = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
-    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,1000, 100,100), material );  //tamaña 1000x1000
+    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,1000, 10,10), material );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
     //suelo.position.y = -0.2;
     scene.add(suelo);
 
     //Base (cilíndro)
-    //const base = new THREE.Object3D( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
-    //scene.add(base);
+    const base = new THREE.Object3D( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
+    scene.add(base);
 
     //Brazo
     //const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20, 20, 18, 32 ), material );
