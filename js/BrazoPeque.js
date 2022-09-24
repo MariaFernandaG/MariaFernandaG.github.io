@@ -35,7 +35,7 @@ function init()
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
     camera= new THREE.PerspectiveCamera(75,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
-    camera.position.set(0,30,30);                                               // posición de la cámara
+    camera.position.set(0,30,25);                                               // posición de la cámara
     camera.lookAt(0,10,10);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
@@ -67,7 +67,7 @@ function loadScene()
     rotula.position.y = 120/n;
 
     brazo = new THREE.Object3D();
-    brazo.position.y = (15/n)/2;
+    brazo.position.y = (18/n)/2;
     brazo.add(eje);
     brazo.add(esparrago);
     brazo.add(rotula);
@@ -82,21 +82,21 @@ function loadScene()
     const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15/n, 15/n, 40/n, 32 ), material );
     
     mano.rotation.x = -Math.PI/2;                               //Rotar la mano sobre el eje X
-    nervio1.position.x = -20/n;
+    nervio1.position.x = -10/n;
     nervio1.position.y = (80/n)/2 + (6/n)/2;
-    nervio1.position.z = 20/n;
+    nervio1.position.z = 10/n;
 
-    nervio2.position.x = -20/n;
+    nervio2.position.x = -10/n;
     nervio2.position.y = (80/n)/2 + (6/n)/2;
-    nervio2.position.z = -20/n;
+    nervio2.position.z = -10/n;
 
-    nervio3.position.x = 20/n;
+    nervio3.position.x = 10/n;
     nervio3.position.y = (80/n)/2 + (6/n)/2;
-    nervio3.position.z = -20/n;
+    nervio3.position.z = -10/n;
 
-    nervio4.position.x = 20/n;
+    nervio4.position.x = 10/n;
     nervio4.position.y = (80/n)/2 + (6/n)/2;
-    nervio4.position.z = 20/n;
+    nervio4.position.z = 10/n;
     mano.position.y = (80/n) + (6/n)/2;
 
     antebrazo = new THREE.Object3D();

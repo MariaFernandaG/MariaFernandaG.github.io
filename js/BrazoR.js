@@ -33,11 +33,10 @@ function init()
     scene.background = new THREE.Color(0.5,0.5,0.5);                    // Color de la escena
 
     // Instanciar la camara
-    //var fov = 2 * Math.atan( 150 / ( 2 * 500 ) ) * ( 180 / Math.PI );            // in degrees
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(100,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
-    camera.position.set(0,150,150);                                               // posición de la cámara
-    camera.lookAt(0,0,0);                                                       // hacia dónde ve la cámara
+    camera= new THREE.PerspectiveCamera(75,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
+    camera.position.set(0,150,130);                                               // posición de la cámara
+    camera.lookAt(0,20,20);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
 
@@ -50,11 +49,12 @@ function loadScene()
     // Suelo (perpendicular al eje Z)
     const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000/n,1000/n, 1000/n,1000/n), materialS );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
-    suelo.position.y = -0.2;
+    //suelo.position.y = -0.2;
     scene.add(suelo);
 
     //Base (cilíndro)
     const base = new THREE.Mesh( new THREE.CylinderGeometry( 50/n, 50/n, 15/n, 32 ), material );
+    base.position.y = (15/n)/2;
     scene.add(base);
 
     //Brazo
@@ -67,22 +67,48 @@ function loadScene()
     rotula.position.y = 120/n;
 
     brazo = new THREE.Object3D();
-    brazo.position.y = (15/n)/2;
+    brazo.position.y = (18/n)/2;
     brazo.add(eje);
     brazo.add(esparrago);
     brazo.add(rotula);
     base.add(brazo);
 
     //Antebrazo
-    //const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
-    //const nervios = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    //const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
-    //mano.rotation.x = -Math.PI/2;           //Rotar la mano sobre el eje X
+    const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22/n, 22/n, 6/n, 32 ), material );
+    const nervio1 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const nervio2 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const nervio3 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const nervio4 = new THREE.Mesh( new THREE.BoxGeometry(4/n,80/n,4/n), material );
+    const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15/n, 15/n, 40/n, 32 ), material );
+    
+    mano.rotation.x = -Math.PI/2;                               //Rotar la mano sobre el eje X
+    nervio1.position.x = -10/n;
+    nervio1.position.y = (80/n)/2 + (6/n)/2;
+    nervio1.position.z = 10/n;
 
-    //antebrazo = new THREE.Object3D();
-    //antebrazo.add(disco);
-    //antebrazo.add(nervios);
-    //antebrazo.add(mano);
+    nervio2.position.x = -10/n;
+    nervio2.position.y = (80/n)/2 + (6/n)/2;
+    nervio2.position.z = -10/n;
+
+    nervio3.position.x = 10/n;
+    nervio3.position.y = (80/n)/2 + (6/n)/2;
+    nervio3.position.z = -10/n;
+
+    nervio4.position.x = 10/n;
+    nervio4.position.y = (80/n)/2 + (6/n)/2;
+    nervio4.position.z = 10/n;
+    mano.position.y = (80/n) + (6/n)/2;
+
+    antebrazo = new THREE.Object3D();
+    antebrazo.add(disco);
+    antebrazo.add(nervio1);
+    antebrazo.add(nervio2);
+    antebrazo.add(nervio3);
+    antebrazo.add(nervio4);
+    antebrazo.add(mano);
+
+    antebrazo.position.y = 120/n;
+    brazo.add(antebrazo);
     
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
