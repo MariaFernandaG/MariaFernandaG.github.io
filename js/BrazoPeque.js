@@ -14,7 +14,7 @@ let renderer, scene, camera;
 let brazo;
 let antebrazo;
 let angulo = 0;
-let n = 100;
+let n = 10;
 
 // Acciones
 init();
@@ -60,10 +60,12 @@ function loadScene()
     eje.rotation.x = -Math.PI/2;           //Rotar el eje sobre el eje X
     const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18/n,120/n,12/n), material );
     const rotula = new THREE.Mesh( new THREE.SphereGeometry(20/n,40,40), material );
-    esparrago.position.y = 20/n;
-    rotula.position.y = 180/n;
+    //eje.position.y = 60/n;
+    esparrago.position.y = 60/n;
+    rotula.position.y = 120/n;
 
     brazo = new THREE.Object3D();
+    brazo.position.y(15/n)/2;
     brazo.add(eje);
     brazo.add(esparrago);
     brazo.add(rotula);
