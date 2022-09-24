@@ -34,10 +34,9 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(100,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
-    camera.position.set(0,150,150);                                               // posición de la cámara
-    camera.lookAt(0,50,50);                                                       // hacia dónde ve la cámara
-    //cameraZoom = 45 / maxSize;
+    camera= new THREE.PerspectiveCamera(80,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
+    camera.position.set(0,250,250);                                               // posición de la cámara
+    camera.lookAt(0,30,30);                                                       // hacia dónde ve la cámara
 }
 
 function loadScene()
