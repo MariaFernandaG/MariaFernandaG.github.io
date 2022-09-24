@@ -52,7 +52,7 @@ function loadScene()
     scene.add(suelo);
 
     //Base (cilíndro)
-    const base = new THREE.Mesh( new THREE.CylinderGeometry( 5/n, 5/n, 15/n, 32 ), material );
+    const base = new THREE.Mesh( new THREE.CylinderGeometry( 50/n, 50/n, 15/n, 32 ), material );
     scene.add(base);
 
     //Brazo
