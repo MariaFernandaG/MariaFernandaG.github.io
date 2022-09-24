@@ -33,10 +33,10 @@ function init()
     scene.background = new THREE.Color(0.5,0.5,0.5);                    // Color de la escena
 
     // Instanciar la camara
-    var fov = 2 * Math.atan( 150 / ( 2 * 500 ) ) * ( 180 / Math.PI );            // in degrees
+    //var fov = 2 * Math.atan( 150 / ( 2 * 500 ) ) * ( 180 / Math.PI );            // in degrees
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(fov,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
-    camera.position.set(0.5,3,7);                                               // posición de la cámara
+    camera= new THREE.PerspectiveCamera(150,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
+    camera.position.set(0,50,50);                                               // posición de la cámara
     camera.lookAt(0,0,0);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
