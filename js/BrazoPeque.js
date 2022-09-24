@@ -82,10 +82,21 @@ function loadScene()
     const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
     
     mano.rotation.x = -Math.PI/2;                               //Rotar la mano sobre el eje X
-    nervio1.position = (-20, (80/n)/2 + (6/n)/2, 20);
-    nervio2.position = (-20, (80/n)/2 + (6/n)/2, -20);
-    nervio3.position = (20, (80/n)/2 + (6/n)/2, -20);
-    nervio4.position = (20, (80/n)/2 + (6/n)/2, 20);
+    nervio1.position.x = -20;
+    nervio1.position.y = (80/n)/2 + (6/n)/2;
+    nervio1.position.z = 20;
+
+    nervio2.position.x = -20;
+    nervio2.position.y = (80/n)/2 + (6/n)/2;
+    nervio2.position.z = -20;
+
+    nervio3.position.x = 20;
+    nervio3.position.y = (80/n)/2 + (6/n)/2;
+    nervio3.position.z = -20;
+    
+    nervio4.position.x = 20;
+    nervio4.position.y = (80/n)/2 + (6/n)/2;
+    nervio4.position.z = 20;
     mano.position.y = (80/n) + (6/n)/2;
 
     antebrazo = new THREE.Object3D();
