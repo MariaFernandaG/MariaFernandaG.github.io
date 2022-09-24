@@ -14,6 +14,7 @@ let renderer, scene, camera;
 let brazo;
 let antebrazo;
 let angulo = 0;
+let n = 1;
 
 // Acciones
 init();
@@ -32,9 +33,10 @@ function init()
     scene.background = new THREE.Color(0.5,0.5,0.5);                    // Color de la escena
 
     // Instanciar la camara
+    var fov = 2 * Math.atan( 250 / ( 2 * 35 ) ) * ( 180 / Math.PI );            // in degrees
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(160,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
-    camera.position.set(0.5,50,50);                                               // posición de la cámara
+    camera= new THREE.PerspectiveCamera(fov,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
+    camera.position.set(0.5,3,7);                                               // posición de la cámara
     camera.lookAt(0,0,0);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
@@ -42,31 +44,33 @@ function init()
 function loadScene()
 {
     // Material sencillo
-    const material = new THREE.MeshBasicMaterial({color:'red',wireframe:true});
-    const materialS = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
+    const material = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
-    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,1000, 10,10), materialS );  //tamaña 1000x1000
+    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000/n,1000/n, 1000/n,1000/n), material );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
     suelo.position.y = -0.2;
     scene.add(suelo);
 
     //Base (cilíndro)
-    const base = new THREE.Mesh( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
-    base.position.y = 15;
+    const base = new THREE.Mesh( new THREE.CylinderGeometry( 50/n, 50/n, 15/n, 32 ), material );
     scene.add(base);
 
     //Brazo
-    const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20, 20, 18, 32 ), material );
+    const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20/n, 20/n, 18/n, 32 ), material );
     eje.rotation.x = -Math.PI/2;           //Rotar el eje sobre el eje X
-    const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18,120,12), material );
-    const rotula = new THREE.Mesh( new THREE.SphereGeometry(20,40,40), material );
+    const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18/n,120/n,12/n), material );
+    const rotula = new THREE.Mesh( new THREE.SphereGeometry(20/n,40,40), material );
+    //eje.position.y = 60/n;
+    esparrago.position.y = 60/n;
+    rotula.position.y = 120/n;
 
-    //brazo = new THREE.Object3D();
-    //brazo.add(eje);
-    //brazo.add(esparrago);
-    //brazo.add(rotula);
-    //base.add(brazo);
+    brazo = new THREE.Object3D();
+    brazo.position.y = (15/n)/2;
+    brazo.add(eje);
+    brazo.add(esparrago);
+    brazo.add(rotula);
+    base.add(brazo);
 
     //Antebrazo
     //const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
