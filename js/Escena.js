@@ -28,7 +28,7 @@ function init()
 {
     // Instanciar el motor de render
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.setSize(window.innerWidth/2,window.innerHeight/2);
     document.getElementById('container').appendChild( renderer.domElement );
 
     // Instanciar el nodo raiz de la escena
