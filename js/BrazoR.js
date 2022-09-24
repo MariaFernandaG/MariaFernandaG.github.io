@@ -51,7 +51,7 @@ function loadScene()
 
     //Base (cilíndro)
     const base = new THREE.Object3D( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
-    scene.add(base);
+    //scene.add(base);
 
     //Brazo
     const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20, 20, 18, 32 ), material );
@@ -62,8 +62,8 @@ function loadScene()
     brazo = new THREE.Object3D();
     brazo.add(eje);
     brazo.add(esparrago);
-    brazo.add(rotula);
-    base.add(brazo);
+    brazo.add(rotula);c
+    //base.add(brazo);
 
     //Antebrazo
     const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
