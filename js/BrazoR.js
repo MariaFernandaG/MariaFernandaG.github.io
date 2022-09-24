@@ -44,7 +44,7 @@ function loadScene()
     const material = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
-    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,10000, 10,10), material );  //tamaña 1000x1000
+    const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000,10000, 100,100), material );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
     //suelo.position.y = -0.2;
     scene.add(suelo);
