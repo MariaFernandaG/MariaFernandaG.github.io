@@ -65,7 +65,7 @@ function loadScene()
     rotula.position.y = 120/n;
 
     brazo = new THREE.Object3D();
-    brazo.position.y(15/n)/2;
+    brazo.position.y = (15/n)/2;
     brazo.add(eje);
     brazo.add(esparrago);
     brazo.add(rotula);
