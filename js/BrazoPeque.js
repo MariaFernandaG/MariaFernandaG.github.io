@@ -34,8 +34,8 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(90,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
-    camera.position.set(0,50,50);                                               // posición de la cámara
+    camera= new THREE.PerspectiveCamera(80,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
+    camera.position.set(0,30,30);                                               // posición de la cámara
     camera.lookAt(0,0,0);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
@@ -72,10 +72,10 @@ function loadScene()
     base.add(brazo);
 
     //Antebrazo
-    //const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
-    //const nervios = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
-    //const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
-    //mano.rotation.x = -Math.PI/2;           //Rotar la mano sobre el eje X
+    const disco = new THREE.Mesh( new THREE.CylinderGeometry( 22, 22, 6, 32 ), material );
+    const nervios = new THREE.Mesh( new THREE.BoxGeometry(4,80,4), material );
+    const mano = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 40, 32 ), material );
+    mano.rotation.x = -Math.PI/2;           //Rotar la mano sobre el eje X
 
     //antebrazo = new THREE.Object3D();
     //antebrazo.add(disco);
