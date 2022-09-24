@@ -33,8 +33,8 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(150,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
-    camera.position.set(0.5,10,20);                                               // posición de la cámara
+    camera= new THREE.PerspectiveCamera(180,aspectRatio,0.01,1000000);          // ángulo de visión vertical en grados
+    camera.position.set(0.5,50,50);                                               // posición de la cámara
     camera.lookAt(0,0,0);                                                       // hacia dónde ve la cámara
     //cameraZoom = 45 / maxSize;
 }
@@ -53,6 +53,7 @@ function loadScene()
 
     //Base (cilíndro)
     const base = new THREE.Mesh( new THREE.CylinderGeometry( 50, 50, 15, 32 ), material );
+    base.positon.y = 15;
     scene.add(base);
 
     //Brazo
