@@ -34,9 +34,9 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(80,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
-    camera.position.set(0,250,250);                                               // posición de la cámara
-    camera.lookAt(0,30,30);                                                       // hacia dónde ve la cámara
+    camera= new THREE.PerspectiveCamera(75,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
+    camera.position.set(0,70,70);                                               // posición de la cámara
+    camera.lookAt(0,10,10);                                                       // hacia dónde ve la cámara
 }
 
 function loadScene()
@@ -109,7 +109,6 @@ function loadScene()
     antebrazo.position.y = 120/n;
     brazo.add(antebrazo);
     
-
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     //cubo.add( new THREE.AxesHelper(1) );
 
