@@ -125,12 +125,20 @@ function loadScene()
     
     geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     const dedo1 = new THREE.Mesh( geometry, materialD);
-    dedo1.position.z = -10/n;
-    dedo1.position.y = (80/n) + (6/n)/2;
-    antebrazo.add(dedo1);
+    dedo1.position.x = (19/n)/2;
+
+    const base_pinza = new THREE.Mesh( new THREE.BoxGeometry(19/n,20/n,4/n), materialD );
+
+    pinza = new THREE.Object3D();
+    pinza.position.y = (80/n) + (6/n)/2;
+    pinza.position.z = -10/n;
+
+    pinza.add(base_pinza);
+    pinza.add(dedo1);
+    antebrazo.add(pinza);
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
-    //cubo.add( new THREE.AxesHelper(1) );
+    pinza.add( new THREE.AxesHelper(3) );
 
 }
 
