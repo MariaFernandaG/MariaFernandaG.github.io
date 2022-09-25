@@ -125,8 +125,8 @@ function loadScene()
     geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     const dedo1 = new THREE.Mesh( geometry, material );
     dedo1.position.z = -10/n;
+    dedo1.position.y = (80/n) + (6/n)/2;
     antebrazo.add(dedo1);
-
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     //cubo.add( new THREE.AxesHelper(1) );
