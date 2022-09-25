@@ -13,6 +13,7 @@ let renderer, scene, camera;
 // Otras globales
 let brazo;
 let antebrazo;
+let pinza;
 let angulo = 0;
 let n = 10;
 
