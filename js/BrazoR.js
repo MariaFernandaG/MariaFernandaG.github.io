@@ -35,8 +35,8 @@ function init()
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
     camera= new THREE.PerspectiveCamera(80,aspectRatio,0.1,100000);             // ángulo de visión vertical en grados
-    camera.position.set(0,195,195);                                               // posición de la cámara
-    camera.lookAt(0,15,15);                                                     // hacia dónde ve la cámara
+    camera.position.set(0,255,255);                                               // posición de la cámara
+    camera.lookAt(0,25,25);                                                     // hacia dónde ve la cámara
 }
 
 function loadScene()
@@ -60,7 +60,7 @@ function loadScene()
     const eje = new THREE.Mesh( new THREE.CylinderGeometry( 20/n, 20/n, 18/n, 32 ), material );
     eje.rotation.x = -Math.PI/2;           //Rotar el eje sobre el eje X
     const esparrago = new THREE.Mesh( new THREE.BoxGeometry(18/n,120/n,12/n), material );
-    const rotula = new THREE.Mesh( new THREE.SphereGeometry(20/n,40,40), material );
+    const rotula = new THREE.Mesh( new THREE.SphereGeometry(20/n,20,20), material );
     //eje.position.y = 60/n;
     esparrago.position.y = 60/n;
     rotula.position.y = 120/n;

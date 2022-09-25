@@ -44,6 +44,7 @@ function loadScene()
     // Material sencillo
     const material = new THREE.MeshBasicMaterial({color:'red',wireframe:true});
     const materialS = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
+    const materialD = new THREE.MeshBasicMaterial({color:'blue',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
     const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000/n,1000/n, 1000/n,1000/n), materialS );  //tamaña 1000x1000
@@ -123,7 +124,7 @@ function loadScene()
     ] );
     
     geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-    const dedo1 = new THREE.Mesh( geometry, material );
+    const dedo1 = new THREE.Mesh( geometry, materialD);
     dedo1.position.z = -10/n;
     dedo1.position.y = (80/n) + (6/n)/2;
     antebrazo.add(dedo1);
