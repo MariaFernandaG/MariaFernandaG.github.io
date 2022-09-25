@@ -66,6 +66,11 @@ function loadScene()
         (-19/n)/2, (-20/n)/2, 2/n
     ] );
 
+    const coordenadas = new Float32Array( [
+        1,-1,1, 1,-1,-1, 1,1,-1, 1,1,1,
+        -1,1,1, -1,1,-1, -1,-1,-1, -1,-1,1
+    ] );
+
     const indices = new Float32Array( [
         0,7,3, 3,4,7, 4,6,7,
         6,4,5, 5,1,6, 1,5,2,
@@ -74,7 +79,7 @@ function loadScene()
     ] );
 
     //geometry.setIndex(indices);
-    geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+    geometry.setAttribute( 'position', new THREE.BufferAttribute( coordenadas, 3 ) );
     const dedo1 = new THREE.Mesh( geometry, materialD);
     //dedo1.position.x = (19/n);
 
@@ -82,7 +87,7 @@ function loadScene()
 
     pinza = new THREE.Object3D();
     pinza.position.y = (80/n) + (6/n)/2;
-    pinza.position.z = -10/n;
+    //pinza.position.z = -10/n;
 
     //pinza.add(base_pinza);  
     pinza.add(dedo1);
