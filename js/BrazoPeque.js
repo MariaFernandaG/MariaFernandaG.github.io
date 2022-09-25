@@ -139,7 +139,6 @@ function loadScene()
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     pinza.add( new THREE.AxesHelper(3) );
-
 }
 
 function render()

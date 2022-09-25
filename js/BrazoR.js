@@ -114,9 +114,15 @@ function loadScene()
 
 }
 
+function update()
+{
+    angulo += 0.01;
+    base.rotation.y = angulo;
+}
+
 function render()
 {
     requestAnimationFrame(render);
-    //update();
+    update();
     renderer.render(scene,camera);
 }
