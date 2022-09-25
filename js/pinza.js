@@ -50,7 +50,7 @@ function loadScene()
     // Suelo (perpendicular al eje Z)
     const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000/n,1000/n, 1000/n,1000/n), materialS );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
-    //suelo.position.y = -0.2;
+    suelo.position.y = -0.2;
     scene.add(suelo);
 
     //Pinzas
@@ -86,12 +86,12 @@ function loadScene()
     const base_pinza = new THREE.Mesh( new THREE.BoxGeometry(19/n,20/n,4/n), materialD );
 
     pinza = new THREE.Object3D();
-    pinza.position.y = (80/n) + (6/n)/2;
+    //pinza.position.y = (80/n) + (6/n)/2;
     //pinza.position.z = -10/n;
 
     //pinza.add(base_pinza);  
-    pinza.add(dedo1);
-    scene.add(pinza);
+    //pinza.add(dedo1);
+    scene.add(dedo1);
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     pinza.add( new THREE.AxesHelper(3) );

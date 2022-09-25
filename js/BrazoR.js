@@ -116,7 +116,7 @@ function loadScene()
 
 function update()
 {
-    angulo += 0.001;
+    angulo += 0.005;
     brazo.rotation.y = angulo;
 }
 
