@@ -72,7 +72,8 @@ function loadScene()
         2,0,1, 1,3,0, 0,6,7,
         6,0,1, 3,5,2, 2,3,4
     ] );
-    
+
+    geometry.setIndex(indices);
     geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     const dedo1 = new THREE.Mesh( geometry, materialD);
     dedo1.position.x = (19/n);
