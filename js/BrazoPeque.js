@@ -108,7 +108,25 @@ function loadScene()
 
     antebrazo.position.y = 120/n;
     brazo.add(antebrazo);
+
+    //Pinzas
+    const geometry = new THREE.BufferGeometry();
+    const vertices = new Float32Array( [
+        (19/n)/2, (-16/n)/2, 0,
+        (19/n)/2, (-16/n)/2, -2/n,
+        (19/n)/2, (16/n)/2, -2/n,
+        (19/n)/2, (16/n)/2, 0,
+        (-19/n)/2, (20/n)/2, 2/n,
+        (-19/n)/2, (20/n)/2, -2/n,
+        (-19/n)/2, (-20/n)/2, -2/n,
+        (-19/n)/2, (-20/n)/2, 2/n,
+    ] );
     
+    geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
+    const dedo1 = new THREE.Mesh( geometry, material );
+    dedo1.position.z = -10/n;
+    antebrazo.add(dedo1);
+
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     //cubo.add( new THREE.AxesHelper(1) );
