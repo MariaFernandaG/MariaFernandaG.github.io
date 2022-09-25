@@ -76,7 +76,7 @@ function loadScene()
     //geometry.setIndex(indices);
     geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
     const dedo1 = new THREE.Mesh( geometry, materialD);
-    dedo1.position.x = (19/n);
+    //dedo1.position.x = (19/n);
 
     const base_pinza = new THREE.Mesh( new THREE.BoxGeometry(19/n,20/n,4/n), materialD );
 
@@ -84,7 +84,7 @@ function loadScene()
     pinza.position.y = (80/n) + (6/n)/2;
     pinza.position.z = -10/n;
 
-    pinza.add(base_pinza);  
+    //pinza.add(base_pinza);  
     pinza.add(dedo1);
     scene.add(pinza);
 
