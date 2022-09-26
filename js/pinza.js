@@ -15,7 +15,7 @@ let brazo;
 let antebrazo;
 let pinza;
 let angulo = 0;
-let n = 10;
+let n = 1;
 
 // Acciones
 init();
@@ -35,8 +35,8 @@ function init()
 
     // Instanciar la camara
     var aspectRatio = window.innerWidth / window.innerHeight;
-    camera= new THREE.PerspectiveCamera(75,aspectRatio,0.01,100);          // ángulo de visión vertical en grados
-    camera.position.set(0,30,30);                                               // posición de la cámara
+    camera= new THREE.PerspectiveCamera(75,aspectRatio,0.1,10000);          // ángulo de visión vertical en grados
+    camera.position.set(0,50,50);                                               // posición de la cámara
     camera.lookAt(0,10,10);                                                       // hacia dónde ve la cámara
 }
 
@@ -45,43 +45,43 @@ function loadScene()
     // Material sencillo
     const material = new THREE.MeshBasicMaterial({color:'red',wireframe:true});
     const materialS = new THREE.MeshBasicMaterial({color:'yellow',wireframe:true});
-    const materialD = new THREE.MeshBasicMaterial({color:'blue',wireframe:true});
+    const materialD = new THREE.MeshBasicMaterial({color:'red',wireframe:true});
 
     // Suelo (perpendicular al eje Z)
     const suelo = new THREE.Mesh( new THREE.PlaneGeometry(1000/n,1000/n, 1000/n,1000/n), materialS );  //tamaña 1000x1000
     suelo.rotation.x = -Math.PI/2;          // Se rota el suelo (pi/2) para ponerlo perpendicular al eje Y (plano XZ)
     suelo.position.y = -0.2;
-    scene.add(suelo);
+    //scene.add(suelo);
 
     //Pinzas
     const geometry = new THREE.BufferGeometry();
-    const vertices = new Float32Array( [
-        (19/n)/2, (-16/n)/2, 0,
-        (19/n)/2, (-16/n)/2, -2/n,
-        (19/n)/2, (16/n)/2, -2/n,
-        (19/n)/2, (16/n)/2, 0,
-        (-19/n)/2, (20/n)/2, 2/n,
-        (-19/n)/2, (20/n)/2, -2/n,
-        (-19/n)/2, (-20/n)/2, -2/n,
-        (-19/n)/2, (-20/n)/2, 2/n
-    ] );
 
     const coordenadas = new Float32Array( [
-        1,-1,1, 1,-1,-1, 1,1,-1, 1,1,1,
-        -1,1,1, -1,1,-1, -1,-1,-1, -1,-1,1
+        (19/n)/2, (-14/n)/2, 0, (19/n)/2, (-14/n)/2, -2/n, (19/n)/2, (14/n)/2, -2/n, (19/n)/2, (14/n)/2, 0,
+        (-19/n)/2, (20/n)/2, 2/n, (-19/n)/2, (20/n)/2, -2/n, (-19/n)/2, (-20/n)/2, -2/n, (-19/n)/2, (-20/n)/2, 2/n
     ] );
 
-    const indices = new Float32Array( [
-        0,7,3, 3,4,7, 4,6,7,
-        6,4,5, 5,1,6, 1,5,2,
-        2,0,1, 1,3,0, 0,6,7,
-        6,0,1, 3,5,2, 2,3,4
-    ] );
+    const normales = new Float32Array([ // 24 x3
+        0,0,1, 0,0,1, 0,0,1, 0,0,1,      // Front
+        1,0,0, 1,0,0, 1,0,0, 1,0,0,      // Right
+        0,0,-1, 0,0,-1, 0,0,-1, 0,0,-1,  // Back 
+        -1,0,0, -1,0,0, -1,0,0, -1,0,0,  // Left
+        0,1,0, 0,1,0, 0,1,0, 0,1,0,      // Top 
+        0,-1,0, 0,-1,0, 0,-1,0, 0,-1,0   // Bottom
+    ]);
 
-    //geometry.setIndex(indices);
-    geometry.setAttribute( 'position', new THREE.BufferAttribute( coordenadas, 3 ) );
+    const indices = [
+        0,3,7, 7,3,4, 0,1,2,
+        0,2,3, 4,3,2, 4,2,5,
+        6,7,4, 6,4,5, 1,5,2,
+        1,6,5, 7,6,1, 7,1,0
+    ] ;
+
+    geometry.setIndex(indices);
+    geometry.setAttribute( 'position', new THREE.BufferAttribute(coordenadas, 3) );
+    //geometry.setAttribute( 'normal', new THREE.BufferAttribute(normales, 3) );
     const dedo1 = new THREE.Mesh( geometry, materialD);
-    //dedo1.position.x = (19/n);
+    dedo1.position.x = (19/n);
 
     const base_pinza = new THREE.Mesh( new THREE.BoxGeometry(19/n,20/n,4/n), materialD );
 
@@ -89,12 +89,15 @@ function loadScene()
     //pinza.position.y = (80/n) + (6/n)/2;
     //pinza.position.z = -10/n;
 
-    //pinza.add(base_pinza);  
-    //pinza.add(dedo1);
-    scene.add(dedo1);
+    pinza.add(base_pinza);  
+    pinza.add(dedo1);
+    scene.add(pinza);
+
+    const helper = new VertexNormalsHelper(dedo1, 10, 0x00ff00, 10);
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     pinza.add( new THREE.AxesHelper(3) );
+    scene.add(helper);
 }
 
 function render()
