@@ -93,7 +93,7 @@ function loadScene()
     pinza.add(dedo1);
     scene.add(pinza);
 
-    const helper = new VertexNormalsHelper(dedo1, 10, 0x00ff00, 10);
+    const helper = new THREE.VertexNormalsHelper(dedo1, 5, 0x00ff00);
 
     scene.add( new THREE.AxesHelper(3) );           //x = rojo, y = verde, z = azul
     pinza.add( new THREE.AxesHelper(3) );
